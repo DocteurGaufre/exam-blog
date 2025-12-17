@@ -1,64 +1,48 @@
-import Image from "next/image";
+//import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center bg-zinc-50 dark:bg-black p-2">
+      <main className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        {/* Partie Gauche : Cercle Bleu Géant */}
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+          {/* On remplace rounded-2xl par rounded-full pour faire un cercle */}
+          {/* On ajoute une couleur de fond (ex: bg-blue-600) */}
+          <div className="w-full max-w-lg aspect-square bg-blue-600 rounded-full shadow-2xl">
+            {/* Plus besoin du composant Image ici */}
+          </div>
+        </div>
+
+        {/* Partie Droite : Texte d'intro */}
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#e2a760]">
+            Bienvenue sur ce site !
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg mx-auto md:mx-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna 
+            aliqua. Ut enim ad minim veniam
           </p>
+          
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4 items-center">
+            <Link 
+              href="/blog" 
+              className="bg-[#e2a760] hover:bg-[#cb9656] text-white font-bold py-3 px-6 rounded-full transition-all shadow-lg hover:shadow-xl"
+            >
+              Page 2
+            </Link>
+            <Link 
+              href="/cv" 
+              className="bg-white dark:bg-zinc-800 border-2 border-[#e29a60] text-white font-bold py-3 px-6 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-all"
+            >
+              Page 1
+            </Link>
+
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
       </main>
     </div>
   );

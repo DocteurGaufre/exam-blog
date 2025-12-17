@@ -1,18 +1,23 @@
 import { getArticles, removeArticleAction } from '@/lib/blog'
-import { redirect } from 'next/navigation'
 import Link from 'next/link';
 
 export default async function Home() {
 
   const articles = await getArticles()
   return (
-    <main>
-      <h1 className="text-center text-3xl my-8 font-bold">Mon blog</h1>
+    <main className="p-4 lg:p-8">
+      {/* Titre de la page */}
+      <h1 className="text-center text-3xl my-8 font-bold">Template 2</h1>
+
+      {/* Liste des articles */}
       {articles.map(a => (
         <div key={a.id} className="border rounded m-4">
-          <h3 className="bg-[#436d9e] rounded-t px-3">{a.title}</h3>
-          <p className='bg-[#071e26] p-2'>{a.content}</p>
           
+          {/* Titre et contenu de l'article */}
+          <h3 className="bg-[#436d9e] text-2xl rounded-t p-3">{a.title}</h3>
+          
+          
+          {/* Section des boutons */}
           <div className="bg-[#071e26] rounded-b flex justify-between items-center pr-2">
             <div className="flex">
               {/* Bouton Voir */}
