@@ -6,3 +6,10 @@ export const blogTable = pgTable('blog', {
   content: text('content').notNull(),
   done: boolean('done').default(false).notNull(),
 });
+
+export const cvTable = pgTable('cv_entries', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  title: text('title').notNull(),
+  employer: text('employer').notNull(),
+  description: text('description').notNull(),
+});

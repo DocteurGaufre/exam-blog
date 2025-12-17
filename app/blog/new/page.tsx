@@ -25,16 +25,16 @@ export default function NewPostPage() {
           inputClassName="border w-full p-2 rounded text-white font-normal"
         />
         
-        {/* Label et textarea pour le contenu */}
-        <label className="flex flex-col gap-2 text-slate-50 font-bold">
-          Contenu :
-          <textarea 
-            className="border w-full p-2 h-40 rounded text-white font-normal" 
-            name="content" 
-            required 
-            placeholder="Écrivez votre contenu ici..." 
-          />
-        </label>
+        {/* Contenu */}
+        <Field 
+          tag="textarea"
+          label="Contenu :" 
+          name="content" 
+          required 
+          placeholder="Écrivez votre contenu ici..." 
+          className="flex flex-col gap-2 text-slate-50 font-bold"
+          inputClassName="border w-full p-2 h-40 rounded text-white font-normal"
+        />
 
         {/* Boutons d'annulation et de soumission */}
         <div className="flex justify-between items-center mt-2">
