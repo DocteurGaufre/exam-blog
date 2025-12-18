@@ -95,7 +95,7 @@ export default async function BookingPage(props: BookingPageProps) {
       {/* Formulaire de suppression */}
       <form action={removeBookingAction}>
         <input type="hidden" name="id" value={booking.id} />
-        <button type="submit" className="bg-red-600 border-red-700 hover:bg-red-400 hover:border-red-500 border-2 rounded px-4 py-2 m-3">Supprimer</button>
+        <button type="submit" className="bg-red-600 border-red-700 hover:bg-red-400 hover:border-red-500 border-2 rounded px-4 py-2 m-3">Supprimer la réservation</button>
       </form>
     </div>
   )

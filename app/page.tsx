@@ -8,7 +8,7 @@ export default function Home() {
       
       <h1 className='text-center text-3xl my-8 font-bold'>Bienvenue au Restaurant !</h1> 
 
-      <h2 className="text-center text-2xl my-8 font-bold">Créer une nouvelle réservation</h2>
+      <h2 className="text-center text-2xl my-4">Créer une nouvelle réservation</h2>
 
       <form action={addBooking} className='border rounded-2xl p-6 shadow-lg bg-[#071e26] flex flex-col'>
         <Field 
