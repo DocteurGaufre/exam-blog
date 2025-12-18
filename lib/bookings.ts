@@ -45,7 +45,7 @@ export async function editBooking(form: FormData) {
 
 export async function removeBooking(id: string) {
   await db.delete(bookingTable).where(eq(bookingTable.id, id))
-  redirect((await headers()).get('referer') ?? '/')
+  redirect('/')
 }
 
 export async function removeBookingAction(formData: FormData) {

@@ -1,4 +1,4 @@
-import { getBookings } from '@/lib/bookings';
+import { getBookings, removeBookingAction } from '@/lib/bookings';
 import Link from 'next/link';
 
 export default async function Home() {
@@ -11,11 +11,11 @@ export default async function Home() {
       {/* Titre de la page */}
       <h1 className="text-center text-3xl my-8 font-bold">Liste des réservations</h1>
 
-      {/* Liste des articles */}
+      {/* Liste des réservations */}
       {bookings.map(booking => (
         <div key={booking.id} className="border rounded m-4">
           
-          {/* Titre et contenu de l'article */}
+          {/* Nom la réservation */}
           <h3 className="bg-[#436d9e] text-2xl rounded-t p-3">{booking.name}</h3>
           
           
@@ -24,14 +24,13 @@ export default async function Home() {
             <div className="flex">              
               {/* Bouton Éditer */}
               <Link 
-                href={`/blog/${booking.id}`} 
-                className="bg-amber-600 hover:bg-amber-500 border-2 border-amber-700 text-white rounded px-3 py-0.5 mt-3 mb-3"
+                href={`/bookings/${booking.id}`} 
+                className="bg-amber-600 hover:bg-amber-500 border-2 border-amber-700 text-white rounded px-3 py-0.5 m-3"
               >
-                Éditer
+                Éditer la réservation
               </Link>
             </div>
           </div>
-
         </div>
       ))}
     </main>
