@@ -1,49 +1,68 @@
-//import Image from "next/image";
-import Link from "next/link";
+import { addBooking } from '@/lib/bookings'
+import { Field } from '@/components/Field'
+import { Button } from '@/components/Button'
 
 export default function Home() {
   return (
-    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center bg-zinc-50 dark:bg-black p-2">
-      <main className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-        
-        {/* Partie Gauche : Cercle Bleu Géant */}
-        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-          {/* On remplace rounded-2xl par rounded-full pour faire un cercle */}
-          {/* On ajoute une couleur de fond (ex: bg-blue-600) */}
-          <div className="w-full max-w-lg aspect-square bg-blue-600 rounded-full shadow-2xl">
-            {/* Plus besoin du composant Image ici */}
-          </div>
-        </div>
+    <div className="container mx-auto p-4 max-w-2xl">
+      
+      <h1 className='text-center text-3xl my-8 font-bold'>Bienvenue au Restaurant !</h1> 
 
-        {/* Partie Droite : Texte d'intro */}
-        <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#e2a760]">
-            Bienvenue sur ce site !
-          </h1>
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg mx-auto md:mx-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna 
-            aliqua. Ut enim ad minim veniam
-          </p>
-          
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4 items-center">
-            <Link 
-              href="/blog" 
-              className="bg-[#e2a760] hover:bg-[#cb9656] text-white font-bold py-3 px-6 rounded-full transition-all shadow-lg hover:shadow-xl"
-            >
-              Page 2
-            </Link>
-            <Link 
-              href="/cv" 
-              className="bg-white dark:bg-zinc-800 border-2 border-[#e29a60] text-white font-bold py-3 px-6 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-all"
-            >
-              Page 1
-            </Link>
+      <h2 className="text-center text-2xl my-8 font-bold">Créer une nouvelle réservation</h2>
 
-          </div>
-        </div>
+      <form action={addBooking} className='border rounded-2xl p-6 shadow-lg bg-[#071e26] flex flex-col'>
+        <Field 
+          label="Nom :" 
+          name="name" 
+          placeholder="ex : Michel" 
+          required 
+          className="flex flex-col my-2 text-slate-50 font-bold"
+          inputClassName="border w-full p-2 rounded text-white font-normal"
+        />
 
-      </main>
+        <Field 
+          label="Numéro de téléphone :" 
+          name="phone" 
+          placeholder="ex : 0485 44 55 84" 
+          required 
+          className="flex flex-col my-2 text-slate-50 font-bold"
+          inputClassName="border w-full p-2 rounded text-white font-normal"
+        />
+
+        <Field 
+          label="Nombre de personnes" 
+          name="people_number" 
+          placeholder="ex : 2" 
+          required 
+          className="flex flex-col my-2 text-slate-50 font-bold"
+          inputClassName="border w-full p-2 rounded text-white font-normal"
+        />
+
+        <Field 
+          label="Date :" 
+          name="date" 
+          placeholder="ex : 11/02/2026" 
+          required 
+          className="flex flex-col my-2 text-slate-50 font-bold"
+          inputClassName="border w-full p-2 rounded text-white font-normal"
+        />
+
+        <Field 
+          label="Heure :" 
+          name="hour" 
+          placeholder="ex : 11h45" 
+          required 
+          className="flex flex-col my-2 text-slate-50 font-bold"
+          inputClassName="border w-full p-2 rounded text-white font-normal"
+        />
+
+        <Button 
+          type="submit" 
+          className="w-auto my-3 bg-cyan-600 hover:bg-cyan-700 border-cyan-800 border-2"
+        >
+          Réserver
+        </Button>
+      </form>
     </div>
   );
 }

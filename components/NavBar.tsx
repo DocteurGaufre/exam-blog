@@ -25,8 +25,7 @@ export default function Navbar() {
         <nav className="bg-[#4d7cb5] text-slate-50 shadow-xl sticky top-0 z-50">
             <ul className="container mx-auto flex items-center">
                 <NavLink href="/">Accueil</NavLink>
-                <NavLink href="/cv">Page 1</NavLink>
-                <NavLink href="/blog">Page 2</NavLink>
+                <NavLink href="/bookings">Réservations</NavLink>
             </ul>
         </nav>
     );
