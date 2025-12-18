@@ -21,7 +21,7 @@ export default async function Home() {
               <h3 className="italic">{booking.date} à {booking.hour}</h3>
           </div>
 
-          {/* Bouton Éditer */}
+          {/* Bouton pour rediriger la personne vers la page d'édition */}
           <Link 
             href={`/bookings/${booking.id}`} 
             className="bg-amber-600 hover:bg-amber-500 border-2 border-amber-700 text-white rounded p-3 py-0.5"

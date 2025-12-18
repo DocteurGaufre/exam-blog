@@ -7,15 +7,15 @@ type BookingPageProps = {
 
 export default async function BookingPage(props: BookingPageProps) {
   const params = await props.params;
-  const id = params.id; // On garde l'ID en string (UUID)
+  const id = params.id;
   const booking = await getBooking(id)
 
   // Gestion du cas où la réservation n'est pas trouvée
   if (!booking) {
     return (
       <div>
-        <p>Réservation introuvalble</p>
-        <Link href="/bookings">Retour à la liste des réservations</Link>
+        <p>Réservation introuvable</p>
+        <Link href="/bookings">Retour à la liste de réservations</Link>
       </div>
     )
   }
@@ -23,13 +23,17 @@ export default async function BookingPage(props: BookingPageProps) {
   // Affichage de la réservation
   return (
     <div className="container mx-auto p-4 max-w-2xl">
+
+      {/* Titre de la page */}
       <h1 className="text-center text-3xl my-8 font-bold">Modifier la réservation</h1>
       
+      {/* Formulaire d'édition */}
       <form action={editBooking} className='border rounded-2xl p-6 shadow-lg bg-[#071e26]'>
 
         {/* ID caché pour que le serveur sache quelle réservation modifier */}
         <input type="hidden" name="id" value={booking.id} />
 
+        {/* Nom */}
         <label className="block my-4">
           <span className="text-slate-50 block mb-2 font-bold">Nom :</span>
           <input 
@@ -39,7 +43,8 @@ export default async function BookingPage(props: BookingPageProps) {
             required 
           />
         </label>
-        
+
+        {/* Numéro de téléphone */} 
         <label className="block my-4">
           <span className="text-slate-50 block mb-2 font-bold">Numéro de téléphone :</span>
           <input 
@@ -50,6 +55,7 @@ export default async function BookingPage(props: BookingPageProps) {
           />
         </label>
 
+        {/* Nombre de personnes */}
         <label className="block my-4">
           <span className="text-slate-50 block mb-2 font-bold">Nombre de personnes :</span>
           <input 
@@ -60,6 +66,7 @@ export default async function BookingPage(props: BookingPageProps) {
           />
         </label>
 
+        {/* Date */}
         <label className="block my-4">
           <span className="text-slate-50 block mb-2 font-bold">Date :</span>
           <input 
@@ -70,6 +77,7 @@ export default async function BookingPage(props: BookingPageProps) {
           />
         </label>
 
+        {/* Heure */}
         <label className="block my-4">
           <span className="text-slate-50 block mb-2 font-bold">Heure :</span>
           <input 
@@ -80,12 +88,13 @@ export default async function BookingPage(props: BookingPageProps) {
           />
         </label>
         
+        {/* Bouton pour annuler l'édition */}
         <div className="flex justify-between items-center mt-6">
           <Link href="/bookings" className="text-slate-300 hover:text-white underline">
             Annuler
           </Link>
 
-          {/* Enregistrer */}
+          {/* Bouton pour enregistrer la modification */}
           <button type="submit" className="bg-amber-600 border-amber-800 hover:bg-amber-700 border-2 text-white rounded px-4 py-2 font-bold">
             Enregistrer
           </button>

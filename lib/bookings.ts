@@ -3,18 +3,20 @@
 import { db } from '@/db'
 import { eq } from 'drizzle-orm'
 import { bookingTable } from '@/db/schema'
-import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
+// Obtention de la liste des réservations
 export async function getBookings() {
   return await db.select().from(bookingTable)
 }
 
+// Obtention d'une réservation spécifique
 export async function getBooking(id: string) {
   const result = await db.select().from(bookingTable).where(eq(bookingTable.id, id));
   return result[0]; // Retourne le premier élément trouvé
 }
 
+// Ajout d'une réservation
 export async function addBooking(form: FormData) {
   await db.insert(bookingTable).values({
     name: String(form.get('name')),
@@ -27,6 +29,7 @@ export async function addBooking(form: FormData) {
   redirect('/bookings')
 }
 
+// Edition d'une réservation
 export async function editBooking(form: FormData) {
   await db
     .update(bookingTable)
@@ -43,11 +46,13 @@ export async function editBooking(form: FormData) {
   redirect('/bookings')
 }
 
+// Suppression de la réservation de la base de données
 export async function removeBooking(id: string) {
   await db.delete(bookingTable).where(eq(bookingTable.id, id))
   redirect('/')
 }
 
+// Suppression de la réservation via un bouton du formulaire
 export async function removeBookingAction(formData: FormData) {
   const id = formData.get("id") as string
   return removeBooking(id)
