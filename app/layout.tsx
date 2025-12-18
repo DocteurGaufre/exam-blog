@@ -9,10 +9,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar  />
-        <div className="container mx-auto">
-          {children}
-        </div>
+        <main className="bg-[#ffbb83] min-h-screen">
+          <Navbar  />
+          <div className="container mx-auto">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

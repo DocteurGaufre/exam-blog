@@ -7,13 +7,13 @@ export default function Home() {
     <div className="container mx-auto p-4 max-w-2xl">
       
       {/* Titre principale */}
-      <h1 className='text-center text-3xl my-8 font-bold'>Bienvenue au Restaurant !</h1> 
+      <h1 className='text-center text-3xl my-8 font-bold text-[#3c1e13]'>Bienvenue au Restaurant !</h1> 
 
       {/* Titre secondaire */}
-      <h2 className="text-center text-2xl my-4">Créer une nouvelle réservation</h2>
+      <h2 className="text-center text-2xl my-4 text-[#3c1e13]">Créer une nouvelle réservation</h2>
 
       {/* Formulaire de réservation */}
-      <form action={addBooking} className='border rounded-2xl p-6 shadow-lg bg-[#071e26] flex flex-col'>
+      <form action={addBooking} className='border rounded-2xl p-6 shadow-lg bg-[#a15034] flex flex-col'>
 
         {/* Nom */}
         <Field 
@@ -68,7 +68,7 @@ export default function Home() {
         {/* Bouton pour valider la réservation */}
         <Button 
           type="submit" 
-          className="w-auto my-3 bg-cyan-600 hover:bg-cyan-700 border-cyan-800 border-2"
+          className="w-auto my-3 bg-[#4d7cb5] border-[#3485a1] border-2"
         >
           Réserver
         </Button>

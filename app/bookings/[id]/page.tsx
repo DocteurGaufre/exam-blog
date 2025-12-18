@@ -25,10 +25,10 @@ export default async function BookingPage(props: BookingPageProps) {
     <div className="container mx-auto p-4 max-w-2xl">
 
       {/* Titre de la page */}
-      <h1 className="text-center text-3xl my-8 font-bold">Modifier la réservation</h1>
+      <h1 className="text-center text-3xl my-8 font-bold text-[#3c1e13]">Modifier la réservation</h1>
       
       {/* Formulaire d'édition */}
-      <form action={editBooking} className='border rounded-2xl p-6 shadow-lg bg-[#071e26]'>
+      <form action={editBooking} className='border rounded-2xl p-6 shadow-lg bg-[#a15034]'>
 
         {/* ID caché pour que le serveur sache quelle réservation modifier */}
         <input type="hidden" name="id" value={booking.id} />
